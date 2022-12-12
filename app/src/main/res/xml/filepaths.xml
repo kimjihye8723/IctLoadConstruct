@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <paths xmlns:android="http://schemas.android.com/apk/res/android">
+        <external-path
+            name="hidden"
+            path="plantDiary" />
+        <external-path
+            name="external_files"
+            path="." />
+    </paths>
+</androidx.constraintlayout.widget.ConstraintLayout>

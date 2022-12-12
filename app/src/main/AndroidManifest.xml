@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.blueeye.loadconstruct">
+
+    <!-- webView 허용 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- STT/TTS 사용 허용 -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <!-- 카메라/저장소 권한 허용 -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28"
+        tools:ignore="ScopedStorage" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28"
+        tools:ignore="ScopedStorage" />
+    <!-- 블루투스 연결 요청, 연결 수락 및 데이터 전송 -->
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <!-- gps 위치 권한 허용 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:hardwareAccelerated="true"
+        android:usesCleartextTraffic="true"
+        android:icon="@drawable/logo"
+        android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
+        android:roundIcon="@drawable/logo"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MyApplication"
+        tools:targetApi="31">
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.blueeye.loadconstruct.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/filepaths" />
+        </provider>
+
+        <activity
+            android:name=".MainActivity"
+            android:hardwareAccelerated="true"
+            android:theme="@style/Theme.Design.NoActionBar"
+            android:usesCleartextTraffic="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.media.action.VIDEO_CAPTURE" />
+                <action android:name="android.media.action.IMAGE_CAPTURE" />
+                <action android:name="android.media.action.IMAGE_CAPTURE_SECURE" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Design.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <service
+            android:name=".MyFirebaseMessagingService"
+            android:enabled="true"
+            android:exported="true"
+            android:stopWithTask="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <!--
+            TODO: enabled: 시스템에서 활동을 인스턴스화할 수 있는지 여부
+            true: 인스턴스화 가능(기본값)
+            flase: 인스턴스화 불가능
+
+            TODO: exported: 다른 애플리케이션의 구성요소에서 활동을 시작할 수 있는지를 설정
+            'true': 모든 앱에서 활동에 액세스할 수 있으며 정확한 클래스 이름으로 활동을 시작할 수 있습니다.
+            'false': 활동은 같은 애플리케이션의 구성요소나 사용자 ID가 같은 애플리케이션, 권한이 있는 시스템 구성요소에서만 시작될 수 있음. 이는 인텐트 필터가 없는 경우의 기본값
+
+            TODO: stopWithTask: 휴대폰의 태스크에서 모두닫기 및 스와이프했을때 현상
+            true: 휴대폰의 태스크에서 모두닫기 및 스와이프 했을 때 액티비는 종료되고 서비스도 종료
+            false: 휴대폰의 태스크에서 모두닫기 및 스와이프 했을 때 액티비티는 종료되고 서비스는 onTackRemoved() 호출이 되며 곧바로 서비스가 재시작되어 onCreate()를 타게 된다.
+        -->
+
+    </application>
+
+</manifest>

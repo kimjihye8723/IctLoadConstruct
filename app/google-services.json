@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "321948731002",
+    "project_id": "greent-4d5bf",
+    "storage_bucket": "greent-4d5bf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:321948731002:android:f1d4ceb265733729baddc3",
+        "android_client_info": {
+          "package_name": "com.blueeye.loadconstruct"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "321948731002-u9s3eerta7t1vnbejspou39dm569uptu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCCukeGA8g79E4dL0nlkW0dpgQI44bb5nY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "321948731002-u9s3eerta7t1vnbejspou39dm569uptu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
