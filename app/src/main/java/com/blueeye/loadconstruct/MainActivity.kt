@@ -783,7 +783,7 @@ class MainActivity : AppCompatActivity(), DialogInterface.OnClickListener, TextT
                     }
                     var deviceToken = task.result
                     Log.d(TAG, "deviceToken $deviceToken")
-                    webView.post(Runnable { //웹뷰로 전송
+                    webView.post(Runnable { //디바이스 토큰 웹뷰로 전송
                         webView.loadUrl("javascript:setToken('${deviceToken.toString()}')")
                     })
                 })
